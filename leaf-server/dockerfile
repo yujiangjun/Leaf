@@ -1,4 +1,4 @@
-FROM xiehaijun/jdk11
+FROM khipu/openjdk17-alpine
 MAINTAINER 余江俊
 ADD target/*.jar /opt/app.jar
 ENTRYPOINT ["nohup","java","-jar","/opt/app.jar","&"]
