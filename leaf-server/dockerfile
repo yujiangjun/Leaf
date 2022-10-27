@@ -1,4 +1,6 @@
 FROM khipu/openjdk17-alpine
 MAINTAINER 余江俊
 ADD target/*.jar /opt/app.jar
-ENTRYPOINT ["nohup","java","-jar","/opt/app.jar","&"]
+ENV JAVA_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED"
+#ENTRYPOINT ["nohup", "java", "-jar","--add-opens java.lang=ALL-UNNAMED", "/opt/app.jar", "&"]
+CMD nohup java --add-opens java.base/java.lang=ALL-UNNAMED -jar /opt/app.jar
